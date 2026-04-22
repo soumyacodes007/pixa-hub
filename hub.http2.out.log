@@ -1,0 +1,5 @@
+Pixa Hub running on port 3001 [testnet]
+<-- GET /health
+--> GET /health [32m200[0m 3ms
+<-- POST /api/pay
+--> POST /api/pay [33m401[0m 4ms

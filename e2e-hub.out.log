@@ -1,0 +1,9 @@
+Pixa Hub running on port 3001 [testnet]
+<-- POST /api/pay
+--> POST /api/pay [31m500[0m 717ms
+<-- POST /admin/credit
+--> POST /admin/credit [31m500[0m 4ms
+<-- POST /api/pay
+--> POST /api/pay [31m500[0m 12ms
+<-- POST /api/pay
+--> POST /api/pay [31m500[0m 11ms
