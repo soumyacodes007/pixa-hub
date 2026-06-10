@@ -29,6 +29,19 @@ export class UnsupportedNetworkError extends Error {
   }
 }
 
+export function describeError(err: unknown): string {
+  if (err instanceof Error) {
+    const message = err.message.trim()
+    if (message) return message
+    return err.name.trim() || 'Internal server error'
+  }
+  if (typeof err === 'string') {
+    const message = err.trim()
+    if (message) return message
+  }
+  return 'Internal server error'
+}
+
 export function toHttpException(err: unknown): HTTPException {
   if (err instanceof InsufficientBalanceError) {
     return new HTTPException(402, { message: err.message })
@@ -45,6 +58,6 @@ export function toHttpException(err: unknown): HTTPException {
   if (err instanceof DesktopAuthError) {
     return new HTTPException(401, { message: err.message })
   }
-  const message = err instanceof Error ? err.message : 'Internal server error'
+  const message = describeError(err)
   return new HTTPException(500, { message })
 }
